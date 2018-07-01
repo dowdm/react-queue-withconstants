@@ -9,7 +9,7 @@ function NewTicketForm(props){
 
   function handleNewTicketFormSubmission(event) {
     event.preventDefault();
-    props.onNewTicketCreation({names: names.value, location: location.value, issue: issue.value, id: v4()})
+    props.onNewTicketCreation({names: names.value, location: location.value, issue: issue.value, id: v4()});
     names.value = '';
     location.value = '';
     issue.value = '';
