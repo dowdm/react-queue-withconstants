@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'moment';
 
 function Ticket(props){
   const styledComponentStyles = {
@@ -9,14 +10,15 @@ function Ticket(props){
   };
   return(
     <div>
-      <h3 style={styledComponentStyles}>{props.location} - {props.names}</h3>
-      <p className="red-text"><em>{props.issue}</em></p>
       {/* Add <style jsx global> for non-component specific class, don't combine inline styling with pseudo classes */}
       <style jsx>{`
         .red-text {
           color: red;
         }
-    `}</style>
+        `}</style>
+      <h3 style={styledComponentStyles}>{props.location} - {props.names}</h3>
+      <p className="red-text"><em>{props.issue}</em></p>
+      <p>{props.formattedWaitTime}</p>
       <hr/>
     </div>
   );
@@ -25,7 +27,8 @@ function Ticket(props){
 Ticket.propTypes = {
   names: PropTypes.string,
   location: PropTypes.string,
-  issue: PropTypes.string
+  issue: PropTypes.string,
+  formattedWaitTime: PropTypes.string.isRequired
 };
 
 export default Ticket;
